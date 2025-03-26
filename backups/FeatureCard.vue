@@ -1,0 +1,440 @@
+<template>
+  <div>
+    <div class="feature-card" @click="openModal">
+      <img :src="feature.img" :alt="feature.title" class="feature-img" />
+      <div class="feature-content">
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+      <div class="card-overlay">
+        <span class="view-details">查看详情</span>
+      </div>
+    </div>
+
+    <!-- 模态窗口 -->
+    <div v-if="showModal" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <button class="modal-close" @click="closeModal">
+          ×
+        </button>
+        <div class="modal-header">
+          <img :src="feature.img" :alt="feature.title" class="modal-img" />
+          <h2>{{ feature.title }}</h2>
+        </div>
+        <div class="modal-body">
+          <p class="modal-description">{{ feature.description }}</p>
+          <div v-if="feature.longDescription" class="modal-long-description">
+            <h3>详细介绍</h3>
+            <p>{{ feature.longDescription }}</p>
+          </div>
+          <div v-if="feature.features && feature.features.length" class="modal-features">
+            <h3>产品特点</h3>
+            <ol class="feature-list">
+              <li v-for="(item, index) in feature.features" :key="index">{{ item }}</li>
+            </ol>
+          </div>
+          <div v-if="feature.links && feature.links.length" class="modal-links">
+            <h3>相关链接</h3>
+            <a v-for="(link, index) in feature.links" :key="index" :href="link.url" target="_blank" class="modal-link">
+              <span class="link-icon">&#128279;</span>
+              <span class="link-text">{{ link.text }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    feature: Object,
+  },
+  data() {
+    return {
+      showModal: false
+    };
+  },
+  methods: {
+    openModal() {
+      this.showModal = true;
+      document.body.style.overflow = 'hidden'; // 防止背景滚动
+    },
+    closeModal() {
+      this.showModal = false;
+      document.body.style.overflow = ''; // 恢复背景滚动
+    }
+  }
+};
+</script>
+
+<style scoped>
+.feature-card {
+  background-color: #1d1e2c;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  z-index: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(156, 92, 255, 0.2);
+}
+
+.feature-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.feature-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-title {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.6em;
+}
+
+.feature-description {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ccc;
+  flex-grow: 1;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 4.8em;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 20, 32, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.view-details {
+  color: white;
+  background-color: #9c5cff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .view-details {
+  transform: scale(1.1);
+}
+
+/* 模态窗口样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 20, 32, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background-color: #1d1e2c;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(156, 92, 255, 0.2);
+  transition: background-color 0.3s;
+  line-height: 0.8;
+}
+
+.modal-close:hover {
+  background-color: rgba(156, 92, 255, 0.4);
+}
+
+.modal-header {
+  position: relative;
+}
+
+.modal-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal-header h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(18, 20, 32, 1), transparent);
+  color: #fff;
+  font-size: 2.8rem;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.modal-description {
+  font-size: 2rem;
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.modal-long-description,
+.modal-features {
+  margin-bottom: 25px;
+}
+
+.modal-long-description h3,
+.modal-features h3,
+.modal-links h3 {
+  font-size: 2.2rem;
+  color: #9c5cff;
+  margin-bottom: 15px;
+  letter-spacing: 0.3px;
+  text-align: left;
+  position: relative;
+  padding-left: 15px;
+}
+
+.modal-long-description h3::before,
+.modal-features h3::before,
+.modal-links h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 22px;
+  background: linear-gradient(to bottom, #9c5cff, #ff72b1);
+  border-radius: 2px;
+}
+
+.modal-long-description p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #ccc;
+  letter-spacing: 0.2px;
+}
+
+.modal-features ul {
+  padding-left: 20px;
+}
+
+.modal-features li {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #ccc;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.feature-list {
+  padding-left: 0;
+  margin-left: 0;
+  counter-reset: feature-counter;
+  list-style: none;
+}
+
+.feature-list li {
+  position: relative;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ccc;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: baseline;
+}
+
+.feature-list li::before {
+  counter-increment: feature-counter;
+  content: counter(feature-counter) ". ";
+  position: static;
+  color: #9c5cff;
+  font-weight: 600;
+  margin-right: 8px;
+  min-width: 22px;
+}
+
+.modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-link {
+  display: flex;
+  align-items: center;
+  color: #9c5cff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  background-color: rgba(156, 92, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 8px;
+  letter-spacing: 0.2px;
+}
+
+.link-icon {
+  margin-right: 10px;
+  font-size: 1.6rem;
+}
+
+.link-text {
+  border-bottom: 1px dotted #9c5cff;
+}
+
+.modal-link:hover {
+  color: #ff72b1;
+  transform: translateX(5px);
+  background-color: rgba(255, 114, 177, 0.1);
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .feature-title {
+    font-size: 2rem;
+  }
+
+  .feature-description {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-title {
+    font-size: 1.8rem;
+    height: auto;
+    -webkit-line-clamp: 2;
+  }
+
+  .feature-description {
+    font-size: 1.6rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .modal-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .modal-description {
+    font-size: 1.6rem;
+  }
+
+  .modal-long-description h3,
+  .modal-features h3,
+  .modal-links h3 {
+    font-size: 1.8rem;
+  }
+
+  .modal-long-description p,
+  .modal-features li,
+  .modal-link {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-img {
+    height: 180px;
+  }
+
+  .feature-content {
+    padding: 20px;
+  }
+
+  .modal-img {
+    height: 180px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+}
+</style>
