@@ -1,12 +1,5 @@
 <template>
   <section class="about-us-container">
-    <!-- Hero Section with Cover Image -->
-    <div class="hero-section">
-      <div class="hero-overlay">
-        <h1 class="hero-title">关于我们</h1>
-      </div>
-    </div>
-
     <!-- 主要内容区域 -->
     <div class="content-container">
       <!-- 导航标签 -->
@@ -164,45 +157,9 @@ export default {
 <style scoped>
 .about-us-container {
   width: 100%;
-  color: #ffffff;
-  background-color: #121420;
+  color: #333333;
+  background-color: #ffffff;
   overflow-x: hidden;
-}
-
-/* Hero Section */
-.hero-section {
-  position: relative;
-  height: 60vh;
-  min-height: 400px;
-  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(18, 20, 32, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
-}
-
-.hero-title {
-  font-size: 8rem;
-  color: white;
-  letter-spacing: 1rem;
-  text-transform: uppercase;
-  font-weight: 300;
 }
 
 /* Content Container */
@@ -227,7 +184,7 @@ export default {
   left: -100vw;
   right: -100vw;
   height: 1px;
-  background-color: #333;
+  background-color: #e5e7eb;
   z-index: 1;
 }
 
@@ -236,13 +193,13 @@ export default {
   cursor: pointer;
   font-size: 2.4rem;
   position: relative;
-  color: #999;
+  color: #666666;
   transition: all 0.3s;
   z-index: 2;
 }
 
 .tab.active {
-  color: #fff;
+  color: #2563eb;
   font-weight: 600;
 }
 
@@ -253,12 +210,12 @@ export default {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #9c5cff;
+  background: linear-gradient(90deg, #2563eb, #0891b2);
   z-index: 2;
 }
 
 .tab:hover {
-  color: #fff;
+  color: #2563eb;
 }
 
 /* Content Section */
@@ -269,7 +226,7 @@ export default {
 .section-title {
   font-size: 4.4rem;
   margin-bottom: 40px;
-  color: #fff;
+  color: #1f2937;
 }
 
 .content-grid {
@@ -285,13 +242,13 @@ export default {
 
 .company-alias {
   font-size: 3rem;
-  color: #ccc;
+  color: #4b5563;
   margin-bottom: 30px;
 }
 
 .vision {
   font-size: 2.6rem;
-  color: #9c5cff;
+  color: #2563eb;
   margin-bottom: 30px;
   font-weight: 600;
 }
@@ -299,13 +256,13 @@ export default {
 .description {
   font-size: 2.2rem;
   line-height: 1.6;
-  color: #ccc;
+  color: #4b5563;
 }
 
 .image-content img {
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* 任务部分样式 */
@@ -317,7 +274,7 @@ export default {
 .mission-description {
   font-size: 2.2rem;
   line-height: 1.6;
-  color: #ccc;
+  color: #4b5563;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -349,12 +306,6 @@ export default {
   text-align: left;
 }
 
-.feature-title {
-  margin-bottom: 30px;
-  position: relative;
-  display: inline-block;
-}
-
 .feature-title::before {
   content: '';
   position: absolute;
@@ -363,13 +314,19 @@ export default {
   transform: translateY(-50%);
   width: 40px;
   height: 200%;
-  background: linear-gradient(to bottom, transparent, #9c5cff, transparent);
+  background: linear-gradient(to bottom, transparent, #2563eb, transparent);
   border-radius: 4px;
+}
+
+.feature-title {
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
 }
 
 .feature-heading {
   font-size: 3.6rem;
-  color: #9c5cff;
+  color: #2563eb;
   margin-bottom: 0;
   position: relative;
 }
@@ -377,7 +334,7 @@ export default {
 .feature-summary {
   font-size: 2.2rem;
   line-height: 1.6;
-  color: #ccc;
+  color: #4b5563;
   margin-top: 20px;
 }
 
@@ -386,18 +343,19 @@ export default {
 }
 
 .feature-content {
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e5e7eb;
 }
 
 .feature-content:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(156, 92, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
 }
 
 .feature-content::before {
@@ -407,13 +365,13 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 .feature-description {
   font-size: 2.2rem;
   line-height: 1.6;
-  color: #ccc;
+  color: #4b5563;
   margin: 0;
 }
 
@@ -426,19 +384,20 @@ export default {
 }
 
 .advantage-card {
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid #e5e7eb;
 }
 
 .advantage-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(156, 92, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
 }
 
 .advantage-card::before {
@@ -448,33 +407,29 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 .advantage-icon {
   font-size: 4rem;
-  color: #9c5cff;
+  color: #2563eb;
   margin-bottom: 30px;
 }
 
 .advantage-card h3 {
   margin-bottom: 20px;
-  color: #fff;
+  color: #1f2937;
   font-size: 2.6rem;
 }
 
 .advantage-card p {
-  color: #ccc;
+  color: #4b5563;
   line-height: 1.6;
   font-size: 2rem;
 }
 
 /* 修改响应式设计 */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 5rem;
-  }
-  
   .content-grid {
     grid-template-columns: 1fr;
   }
@@ -526,7 +481,6 @@ export default {
     direction: ltr;
   }
   
-  /* 移动端垂直排列 - 标题在上，内容在下 */
   .feature-text {
     text-align: center;
     order: 1;

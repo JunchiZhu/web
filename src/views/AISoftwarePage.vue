@@ -11,10 +11,6 @@
 
     <main class="main-section">
       <SoftwareIntroduction />
-      <div class="section-divider"></div>
-      <VideoSection />
-      <div class="section-divider"></div>
-      <LogoSection />
     </main>
 
     <Footer />
@@ -23,17 +19,12 @@
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue'
-import VideoSection from '@/components/VideoSection.vue'
-import LogoSection from '@/components/LogoSection.vue'
 import Footer from '@/components/FooterComponent.vue'
 import SoftwareIntroduction from '@/components/SoftwareIntroduction.vue'
-
 
 export default {
   components: {
     Header: HomeHeader,
-    VideoSection,
-    LogoSection,
     Footer,
     SoftwareIntroduction
   },
@@ -43,9 +34,21 @@ export default {
 <style scoped>
 .software-page {
   width: 100%;
-  color: #ffffff;
-  background-color: #121420;
+  color: #333333;
+  background-color: #ffffff;
   overflow-x: hidden;
+}
+
+/* 添加动画关键帧 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Hero Section */
@@ -60,6 +63,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10vh;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .hero-overlay {
@@ -68,7 +73,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(18, 20, 32, 0.8);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,29 +82,27 @@ export default {
 
 .hero-title {
   font-size: 8rem;
-  color: white;
+  color: #ffffff;
   letter-spacing: 1rem;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .main-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
   padding: 5vh 5vw;
   width: 100%;
   box-sizing: border-box;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-}
-
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background-color: #333;
-  margin: 3vh 0;
+  background-color: #ffffff;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards 0.6s;
 }
 
 /* 响应式设计 */

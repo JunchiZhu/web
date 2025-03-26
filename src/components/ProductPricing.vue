@@ -92,7 +92,7 @@ export default {
   margin: 0 auto;
   text-align: center;
   padding: 80px 40px;
-  color: #ffffff;
+  color: #333333;
   overflow-x: hidden;
 }
 
@@ -104,13 +104,13 @@ export default {
 
 .section-header .title {
   font-size: 4.4rem;
-  color: #fff;
+  color: #333333;
   margin-bottom: 15px;
 }
 
 .section-header .description {
   font-size: 2.2rem;
-  color: #ccc;
+  color: #666666;
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
@@ -129,19 +129,20 @@ export default {
   flex: 1;
   min-width: 300px;
   max-width: 350px;
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 40px 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid #f0f0f0;
 }
 
 .pricing-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(156, 92, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
 }
 
 .pricing-card::before {
@@ -151,14 +152,15 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 /* 特色卡片样式 */
 .pricing-card.featured {
   transform: scale(1.05);
   z-index: 1;
-  box-shadow: 0 15px 50px rgba(156, 92, 255, 0.3);
+  box-shadow: 0 15px 50px rgba(37, 99, 235, 0.15);
+  border: 2px solid #2563eb;
 }
 
 .pricing-card.featured:hover {
@@ -169,12 +171,12 @@ export default {
   position: absolute;
   top: 20px;
   right: -30px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
   color: white;
   padding: 5px 30px;
   font-size: 1.6rem;
   transform: rotate(45deg) translateX(22px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   font-weight: 600;
 }
 
@@ -187,14 +189,14 @@ export default {
   font-size: 2.8rem;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #fff;
+  color: #333333;
 }
 
 .price-tag {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  color: #9c5cff;
+  color: #2563eb;
 }
 
 .currency {
@@ -211,19 +213,19 @@ export default {
 
 .period {
   font-size: 2rem;
-  color: #ccc;
+  color: #666666;
   margin-left: 5px;
 }
 
 .price-tag.enterprise .custom-price {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #9c5cff;
+  color: #2563eb;
 }
 
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(156, 92, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
   margin: 20px 0 30px;
 }
 
@@ -237,14 +239,14 @@ export default {
 
 .features-list li {
   font-size: 1.8rem;
-  color: #ccc;
+  color: #666666;
   padding: 12px 0 12px 30px;
   position: relative;
 }
 
 .features-list li::before {
   content: '✓';
-  color: #9c5cff;
+  color: #2563eb;
   position: absolute;
   left: 0;
   font-weight: 600;
@@ -254,9 +256,9 @@ export default {
 .pricing-button {
   width: 100%;
   padding: 15px 0;
-  border: 2px solid #9c5cff;
+  border: 2px solid #2563eb;
   background-color: transparent;
-  color: #9c5cff;
+  color: #2563eb;
   border-radius: 8px;
   font-size: 1.8rem;
   font-weight: 600;
@@ -265,14 +267,14 @@ export default {
 }
 
 .pricing-button:hover {
-  background-color: #9c5cff;
+  background-color: #2563eb;
   color: white;
 }
 
 /* CTA区域 */
 .cta-section {
   margin-top: 80px;
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 50px 60px;
   border-radius: 12px;
   display: flex;
@@ -280,9 +282,10 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  border: 1px solid #f0f0f0;
 }
 
 .cta-section::before {
@@ -292,7 +295,7 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 .cta-content {
@@ -304,19 +307,19 @@ export default {
 .cta-content h3 {
   font-size: 3rem;
   margin-bottom: 15px;
-  color: #fff;
+  color: #333333;
 }
 
 .cta-content p {
   font-size: 1.8rem;
-  color: #ccc;
+  color: #666666;
   margin: 0;
   line-height: 1.6;
 }
 
 .cta-button {
   padding: 15px 40px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
   border: none;
   border-radius: 8px;
   color: white;
@@ -329,7 +332,7 @@ export default {
 
 .cta-button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(156, 92, 255, 0.4);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
 /* 响应式调整 */

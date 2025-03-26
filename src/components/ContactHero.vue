@@ -1,12 +1,5 @@
 <template>
   <section class="contact-container">
-    <!-- Hero Section with Cover Image -->
-    <div class="hero-section">
-      <div class="hero-overlay">
-        <h1 class="hero-title">联系我们</h1>
-      </div>
-    </div>
-
     <!-- 主要内容区域 -->
     <div class="content-container">
       <h2 class="section-title">联系我们</h2>
@@ -129,42 +122,8 @@ export default {
 /* 主容器 */
 .contact-container {
   width: 100%;
-  color: #ffffff;
-  background-color: #121420;
-}
-
-/* Hero Section */
-.hero-section {
-  position: relative;
-  height: 60vh;
-  min-height: 400px;
-  background-image: url('https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(18, 20, 32, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-title {
-  font-size: 8rem;
-  color: white;
-  letter-spacing: 1rem;
-  text-transform: uppercase;
-  font-weight: 300;
+  color: #333333;
+  background-color: #ffffff;
 }
 
 /* 内容区域 */
@@ -178,13 +137,13 @@ export default {
   font-size: 4.4rem;
   text-align: center;
   margin-bottom: 20px;
-  color: #fff;
+  color: #1f2937;
 }
 
 .section-description {
   font-size: 2.2rem;
   text-align: center;
-  color: #ccc;
+  color: #4b5563;
   max-width: 800px;
   margin: 0 auto 60px;
   line-height: 1.6;
@@ -205,14 +164,15 @@ export default {
 }
 
 .info-card {
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid #e5e7eb;
 }
 
 .info-card::before {
@@ -222,46 +182,48 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 .info-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.1);
 }
 
 .info-icon {
   font-size: 3rem;
-  color: #9c5cff;
+  color: #2563eb;
   margin-bottom: 20px;
 }
 
 .info-card h3 {
   font-size: 2.4rem;
-  color: #fff;
+  color: #1f2937;
   margin-bottom: 15px;
 }
 
 .info-card p {
   font-size: 2rem;
-  color: #ccc;
+  color: #4b5563;
 }
 
 .info-card a {
-  color: #ccc;
+  color: #4b5563;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .info-card a:hover {
-  color: #9c5cff;
+  color: #2563eb;
 }
 
 /* 地图容器 */
 .map-container {
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   height: 300px;
+  border: 1px solid #e5e7eb;
 }
 
 .map-container iframe {
@@ -272,12 +234,13 @@ export default {
 
 /* 表单样式 */
 .contact-form {
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  border: 1px solid #e5e7eb;
 }
 
 .contact-form::before {
@@ -287,7 +250,7 @@ export default {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
 }
 
 .form-header {
@@ -297,13 +260,13 @@ export default {
 
 .form-header h3 {
   font-size: 3rem;
-  color: #fff;
+  color: #1f2937;
   margin-bottom: 15px;
 }
 
 .form-header p {
   font-size: 1.8rem;
-  color: #ccc;
+  color: #4b5563;
 }
 
 .form-group {
@@ -313,7 +276,7 @@ export default {
 label {
   display: block;
   font-size: 1.8rem;
-  color: #ccc;
+  color: #4b5563;
   margin-bottom: 10px;
 }
 
@@ -321,23 +284,23 @@ input,
 textarea {
   width: 100%;
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
-  color: #fff;
+  color: #1f2937;
   font-size: 1.8rem;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #9c5cff;
-  box-shadow: 0 0 0 3px rgba(156, 92, 255, 0.25);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
   outline: none;
 }
 
 button {
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  background: linear-gradient(90deg, #2563eb, #0891b2);
   color: white;
   border: none;
   padding: 15px 30px;
@@ -351,7 +314,7 @@ button {
 
 button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(156, 92, 255, 0.4);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
 }
 
 /* Responsive Design */
@@ -359,10 +322,6 @@ button:hover {
   .contact-main {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  
-  .hero-title {
-    font-size: 6rem;
   }
   
   .section-title {
@@ -375,11 +334,6 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 4rem;
-    letter-spacing: 0.5rem;
-  }
-  
   .content-container {
     padding: 40px 20px;
   }
@@ -429,10 +383,6 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-  
   .section-title {
     font-size: 3rem;
   }

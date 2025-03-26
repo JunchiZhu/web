@@ -7,7 +7,6 @@
       <CoreFeaturesSection :scrollY="scrollY" :heroHeight="heroHeight" />
       <EcosystemSection :scrollY="scrollY" :heroHeight="heroHeight" />
       <NewsSection :scrollY="scrollY" :heroHeight="heroHeight" />
-<!--      <CustomerDisplaySection :scrollY="scrollY" :heroHeight="heroHeight" />-->
       <Footer :scrollY="scrollY" :heroHeight="heroHeight" />
     </div>
   </div>
@@ -19,7 +18,6 @@ import HeroSection from '@/components/HeroSection.vue';
 import ProductFeatureSection from '@/components/ProductFeatureSection.vue';
 import CoreFeaturesSection from '@/components/CoreFeaturesSection.vue';
 import EcosystemSection from '@/components/EcosystemSection.vue';
-// import CustomerDisplaySection from '@/components/CustomerDisplaySection.vue';
 import NewsSection from '@/components/NewsSection.vue';
 import HomeFooter from '@/components/HomeFooter.vue';
 
@@ -31,7 +29,6 @@ export default {
     ProductFeatureSection,
     CoreFeaturesSection,
     EcosystemSection,
-    // CustomerDisplaySection,
     NewsSection,
   },
   data() {

@@ -209,11 +209,11 @@ export default {
   border: 0.2vh solid black;
 }
 
-
 .nav-link:hover {
   text-decoration: none;
 }
 
+/* 移除悬停效果 */
 .nav-link.nav-link-hover {
   position: relative;
 }
@@ -222,22 +222,9 @@ export default {
   color: black;
 }
 
+/* 移除下划线动画 */
 .nav-link.nav-link-hover::after {
-  content: '';
-  position: absolute;
-  bottom: -1vh;
-  left: 0;
-  width: 100%;
-  height: 0.2vh;
-  background-color: black;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
-}
-
-.nav-link.nav-link-hover:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+  display: none;
 }
 
 .logo {
@@ -269,7 +256,6 @@ export default {
   flex-wrap: nowrap; /* 避免换行 */
 }
 
-
 /* 统一导航链接和按钮样式 */
 .nav-link,
 .contact-link {
@@ -282,8 +268,29 @@ export default {
   transition: color 0.3s ease, background-color 0.3s ease;
   white-space: nowrap;
   text-decoration: none;
+  position: relative;
 }
 
+/* 添加下划线动画效果 */
+.nav-link:not(.contact-link)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-link:not(.contact-link):hover::after {
+  width: 100%;
+}
+
+/* 移除之前的悬停效果覆盖 */
+.nav-link.nav-link-hover::after {
+  display: block;
+}
 
 .contact-link {
   font-size: 1.9vh; /* 按钮稍大 */
@@ -373,24 +380,9 @@ export default {
   cursor: pointer;
 }
 
+/* 移除弹出菜单样式 */
 .popup {
-  position: absolute;
-  width: 100vw;
-  height: 15vh;
-  top: 10vh;
-  left: 0;
-  background-color: white;
-  color: #333;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 2rem;
-}
-
-.nav-link-wrapper {
-  display: inline-block;
+  display: none;
 }
 
 @media (max-width: 1000px) {
@@ -419,8 +411,7 @@ export default {
     padding: 1.2vh 3vw; /* 增大触摸区域 */
     height: 5vh;
   }
-
 }
-
-
 </style>
+
+

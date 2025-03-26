@@ -95,7 +95,7 @@ export default {
 <style scoped>
 .software-intro {
   width: 100%;
-  color: #ffffff;
+  color: #333333;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -108,13 +108,15 @@ export default {
 
 .section-header .title {
   font-size: 4.4rem;
-  color: #fff;
+  background: linear-gradient(45deg, #4ade80, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
 }
 
 .section-header .description {
   font-size: 2.2rem;
-  color: #ccc;
+  color: #666666;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -131,12 +133,13 @@ export default {
 }
 
 .positioning, .goals {
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   padding: 35px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  border: 1px solid #f0f0f0;
 }
 
 .positioning::before, .goals::before {
@@ -144,13 +147,13 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #9c5cff, #ff72b1);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #4ade80, #3b82f6);
 }
 
 .positioning h3, .goals h3 {
-  color: #9c5cff;
+  color: #3b82f6;
   font-size: 2.8rem;
   margin-bottom: 25px;
   position: relative;
@@ -161,7 +164,7 @@ export default {
 }
 
 .positioning li, .goals li {
-  color: #ccc;
+  color: #666666;
   font-size: 1.8rem;
   margin-bottom: 15px;
   line-height: 1.6;
@@ -172,31 +175,32 @@ export default {
 /* 核心功能 */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .feature {
-  background-color: #1d1e2c;
+  background-color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
 }
 
 .feature:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(156, 92, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(74, 222, 128, 0.15);
 }
 
 .feature-header {
   padding: 25px 30px;
-  background-color: rgba(156, 92, 255, 0.1);
-  border-bottom: 1px solid rgba(156, 92, 255, 0.2);
+  background: linear-gradient(45deg, rgba(74, 222, 128, 0.1), rgba(59, 130, 246, 0.1));
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .feature-header h3 {
-  color: #fff;
+  color: #3b82f6;
   font-size: 2.4rem;
   margin: 0;
 }
@@ -206,40 +210,36 @@ export default {
 }
 
 .feature-content ul {
-  padding-left: 5px;
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .feature-content li {
-  color: #ccc;
-  font-size: 1.7rem;
+  color: #666666;
+  font-size: 1.6rem;
   margin-bottom: 15px;
   line-height: 1.6;
-  position: relative;
-  padding-left: 15px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 
-.feature-content li:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 12px;
-  width: 6px;
-  height: 6px;
-  background-color: #9c5cff;
-  border-radius: 50%;
+.feature-content li:last-child {
+  margin-bottom: 0;
 }
 
-.feature-content li strong {
-  color: #ff72b1;
+.feature-content strong {
+  color: #333333;
   font-weight: 600;
 }
 
 /* 响应式设计 */
-@media (max-width: 900px) {
-  .content-box {
+@media (max-width: 1200px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features-grid {
     grid-template-columns: 1fr;
   }
   
@@ -248,40 +248,15 @@ export default {
   }
   
   .section-header .description {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .positioning, .goals {
-    padding: 25px;
+    font-size: 1.8rem;
   }
   
   .positioning h3, .goals h3 {
     font-size: 2.4rem;
   }
   
-  .feature-header h3 {
-    font-size: 2.2rem;
-  }
-  
-  .positioning li, .goals li,
-  .feature-content li {
+  .positioning li, .goals li {
     font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-header .title {
-    font-size: 3rem;
-  }
-  
-  .section-header .description {
-    font-size: 1.7rem;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>
